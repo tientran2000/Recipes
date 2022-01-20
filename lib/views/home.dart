@@ -64,8 +64,7 @@ static List<Recipe> list=[];
                       thumbnailUrl: list[index].images),
                 );
               },
-              //addAutomaticKeepAlives: true,
-              //itemExtent: 5,
+
             ),
     );
   }
