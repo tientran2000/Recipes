@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/recipe_database.dart';
 import 'package:flutter_app/models/recipe.api.dart';
 import 'package:flutter_app/models/recipe.dart';
 import 'package:flutter_app/views/recipe_card.dart';
@@ -49,13 +50,17 @@ class CategoriesPage extends State<Categories> {
               itemCount: recipe_category.length,
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RecipeDetails(
-                          recipeModel: recipe_category[index],
-                        ),
-                      )),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RecipeDetails(
+                            recipeModel: recipe_category[index],
+                          ),
+                        ));
+                    onSave(recipe_category[index].name, recipe_category[index].totalTime,
+                        recipe_category[index].images, recipe_category[index].rating);
+                  },
                   child: RecipeCard(
                       title: recipe_category[index].name,
                       cookTime: recipe_category[index].totalTime,
@@ -65,6 +70,17 @@ class CategoriesPage extends State<Categories> {
               },
             ),
     );
+  }
+  void onSave(
+      String n,
+      String t,
+      String img,
+      double r,
+      ) {
+    var info = Recipe(name: n, totalTime: t, rating: r, images: img);
+    RecipeDatabase.instance.insertRecipe(info);
+
+    // Navigator.pop(context);
   }
 }
 

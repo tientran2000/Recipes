@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/constant.dart';
-import 'package:flutter_app/models/configuration.dart';
+import 'package:flutter_app/views/contactPage.dart';
 import 'package:flutter_app/views/favoritePage.dart';
 import 'package:flutter_app/views/historyPage.dart';
 
@@ -75,8 +75,8 @@ class MenuPage extends State<Menu> {
                   leading: Icon(Icons.info),
                   title: Text('Contact'),
                   onTap: (){
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (_) => Lienhe()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => ContactPage()));
                   },
                 ),
                 ListTile(

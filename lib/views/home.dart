@@ -20,19 +20,17 @@ static List<Recipe> list=[];
   void initState() {
     super.initState();
     getRecipes();
-//print(_recipes);
-    //_recipeDatabase.
-    //_recipeHelper.initializeDatabase().then((value) => print("database initialized"));
+
   }
 
   Future<void> getRecipes() async {
     _recipes = await RecipeApi.getRecipe();
     setState(() {
-      //print(_recipes);
-      list=_recipes;
+list=_recipes;
       _isLoading = false;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +52,7 @@ static List<Recipe> list=[];
                             recipeModel: list[index],
                           ),
                         ));
-                    onSave(list[index].name, list[index].totalTime,
+                    onSave(list[index].name,list[index].totalTime,
                         list[index].images, list[index].rating);
                   },
                   child: RecipeCard(

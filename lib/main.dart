@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Lato",
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       home: OnBoardScreen(),
     );
   }
